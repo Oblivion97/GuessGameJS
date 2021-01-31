@@ -125,7 +125,8 @@ document.querySelector('.again').addEventListener('click', function () {
     document.querySelector('.score').textContent = Score;
     document.querySelector('.number').textContent = '?';
     document.querySelector('.guess').textContent = '';
-
+    document.querySelector('.guess').disabled=false;
+    document.querySelector('.check').disabled=false;
     //css manipulation DOM
     document.querySelector('body').style.backgroundColor = '#222';
     document.querySelector('.number').style.width = '15rem';
