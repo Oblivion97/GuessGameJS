@@ -38,14 +38,15 @@ document.querySelector('.check').addEventListener('click', function () {
 
         //css manipulation DOM
         document.querySelector('body').style.backgroundColor = '#a19012';
-        document.querySelector('.message').textContent = "Blank Input can't be checked with guessed Number!";
+        document.querySelector('.message').textContent = `Blank Input can't be checked with guessed Number!`;
 
     }if(guess < 0 || guess< 1 || guess > 20 ){
         //Negative Number & Range out of Bound Input
 
         //css manipulation DOM
         document.querySelector('body').style.backgroundColor = '#a19012';
-        document.querySelector('.message').textContent = "Negative Number Input or Input Range Out of Bound!";
+        document.querySelector('.message').textContent = `You guessed ${guess}, Negative Number Input or Input Range Out of Bound!`;
+        document.getElementsByClassName("guess")[0].value = "";
 
     }else if(guess === Secretnumber){
         //Player Wins
@@ -53,7 +54,7 @@ document.querySelector('.check').addEventListener('click', function () {
         //css manipulation DOM
         document.querySelector('body').style.backgroundColor = '#039c4a';
         document.querySelector('.number').style.width = '30rem';
-        document.querySelector('.message').textContent = "Correct Number!";
+        document.querySelector('.message').textContent = `You guessed ${guess}, Correct Number!`;
         Score ++;
         document.querySelector('.score').textContent = Score;
         Secretnumber = Math.trunc(Math.random()*20)+1;
@@ -72,7 +73,7 @@ document.querySelector('.check').addEventListener('click', function () {
             document.querySelector('.check').disabled=true;
             document.querySelector('body').style.backgroundColor = '#7e018f';
         }
-        
+        document.getElementsByClassName("guess")[0].value = "";
         
         
 
@@ -83,7 +84,7 @@ document.querySelector('.check').addEventListener('click', function () {
         //css manipulation DOM
         document.querySelector('body').style.backgroundColor = '#ad1602';
         if (Score > 0) {
-            document.querySelector('.message').textContent = "Too high!";
+            document.querySelector('.message').textContent = `You guessed ${guess}, Too high!`;
             Score --;
             document.querySelector('.score').textContent = Score;
             
@@ -93,7 +94,7 @@ document.querySelector('.check').addEventListener('click', function () {
             document.querySelector('.check').disabled=true;
             document.querySelector('body').style.backgroundColor = '#1b018f';
         }
-        
+        document.getElementsByClassName("guess")[0].value = "";
 
         
     }else if(guess < Secretnumber){
@@ -103,7 +104,7 @@ document.querySelector('.check').addEventListener('click', function () {
         document.querySelector('body').style.backgroundColor = '#ad1602';
         if (Score > 0) {
 
-            document.querySelector('.message').textContent = "Too low!";
+            document.querySelector('.message').textContent = `You guessed ${guess}, Too low!`;
             Score --;
             document.querySelector('.score').textContent = Score;
         }else if(Score == 0){
@@ -112,7 +113,7 @@ document.querySelector('.check').addEventListener('click', function () {
             document.querySelector('.check').disabled=true;
             document.querySelector('body').style.backgroundColor = '#1b018f';
         }
-        //document.getElementsByTagName("INPUT")[0].setAttribute(".guess", ""); //<input type="number" class="guess" />
+        document.getElementsByClassName("guess")[0].value = "";//document.getElementsByTagName("INPUT")[0].setAttribute(".guess", ""); //<input type="number" class="guess" />
     }
 
 });
